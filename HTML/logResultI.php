@@ -12,8 +12,8 @@
     <div>
         <?php
         $isError = false;
-        if(isset($_POST['ins_id'])){
-            $ins_id = trim($_POST['ins_id']);
+        if(isset($_POST["ins_id"])){
+            $ins_id = trim($_POST["ins_id"]);
             if($ins_id===""){
                 $isError = true;
             }
@@ -33,7 +33,7 @@
         $idflg = false;
         $psflg = false;
         foreach($list[0] as $id){
-            if($_POST['ins_id'] === $id){
+            if($_POST["ins_id"] === $id){
                 $idflag = true;
                 foreach($list[0]['ps'] as $ps){
                     if($_POST['ins_ps'] === $ps){
