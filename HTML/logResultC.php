@@ -24,7 +24,7 @@
         try{
             $sql = "SELECT loginId, ps FROM company;";
             $stm = $pdo->prepare($sql);
-            $list['loginId'] = exeSQL($stm);
+            $list = exeSQL($stm);
         } catch (Exception $e) {
             echo '<span class="error">SQLの実行でエラーがありました</span><br>';
             echo $e->getMessage();
@@ -32,10 +32,10 @@
         }
         $idflg = false;
         $psflg = false;
-        foreach($list['loginId'] as $id){
+        foreach($list[0]['loginId'] as $id){
             if($_POST['com_id'] === $id){
                 $idflag = true;
-                foreach($list['ps'] as $ps){
+                foreach($list[0]['ps'] as $ps){
                     if($_POST['com_ps'] === $ps){
                         $psflag = true;
                         $_SESSION["com_id"] = $_POST["com_id"];
@@ -56,7 +56,7 @@
         <?php else: ?>
         <span>
             ログインが完了しました。
-            <a href="myCompany.html">マイページへ<a>
+            <a href="myCompany.php">マイページへ<a>
         <?php endif; ?>
     </div>
 </body>

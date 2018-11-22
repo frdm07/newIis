@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("../iis/commonSql.php");
+    require_once("../commonSql.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,37 +12,34 @@
     <div>
         <?php
         $isError = false;
-        if(isset($_POST['inst_id'])){
-            $inst_id = trim($_POST['inst_id']);
-            if($inst_id===""){
+        if(isset($_POST['ins_id'])){
+            $ins_id = trim($_POST['ins_id']);
+            if($ins_id===""){
                 $isError = true;
             }
         } else {
             $isError = true;
         }
-        connectDB();
-        $sql = "SELECT loginId FROM instructor;";
-        $list['loginId'] = exeSQL($sql);
+        $pdo = connectDB();
+        try{
+            $sql = "SELECT loginId, ps FROM instructor;";
+            $stm = $pdo->prepare($sql);
+            $list = exeSQL($stm);
+        } catch (Exception $e) {
+            echo '<span class="error">SQLの実行でエラーがありました</span><br>';
+            echo $e->getMessage();
+            exit();
+        }
         $idflg = false;
         $psflg = false;
-        foreach($list['loginId'] as $id){
-            if($_POST['inst_id'] === $id){
+        foreach($list[0]['loginId'] as $id){
+            if($_POST['com_id'] === $id){
                 $idflag = true;
-                $pdo = connectDB();
-                try{
-                    $sql = "SELECT ps FROM instructor WHERE loginId = :id;";
-                    $stm = $pdo->prepare($sql);
-                    $stm->bindValue(':id',$id,PDO::PARAM_INT);
-                    $ps = exeSQL($stm);
-                } catch (Exception $e) {
-                    echo '<span class="error">SQLの実行でエラーがありました</span><br>';
-                    echo $e->getMessage();
-                    exit();
-                }
-                if($_POST['inst_ps'] === $ps){
-                    $psflag = true;
-                    $_SESSION['ins_id'] = $_POST['inst_id'];
-                    break;
+                foreach($list[0]['ps'] as $ps){
+                    if($_POST['com_ps'] === $ps){
+                        $psflag = true;
+                        $_SESSION["com_id"] = $_POST["com_id"];
+                    }
                 }
             }
         }
@@ -59,7 +56,7 @@
         <?php else: ?>
         <span>
             ログインが完了しました。
-            <a href="myInst.html">マイページへ<a>
+            <a href="myInst.php">マイページへ<a>
         <?php endif; ?>
     </div>
 </body>

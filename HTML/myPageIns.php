@@ -44,7 +44,8 @@
                 <td colspan='2' rowspan='2'>Java</td></tr>      
         </table>
         <table class='grade'>
-            <tr><th>空き日程</th>
+            <tr><th>
+            空き日程</th>
                 <th></th></tr>
             <tr><td></td><td>
                 <table class='schedule' border='3'>
