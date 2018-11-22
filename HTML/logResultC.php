@@ -32,7 +32,7 @@
         }
         $idflg = false;
         $psflg = false;
-        foreach($list[0]['loginId'] as $id){
+        foreach($list[0] as $id){
             if($_POST['com_id'] === $id){
                 $idflag = true;
                 foreach($list[0]['ps'] as $ps){
