@@ -12,7 +12,7 @@
     <div>
         <?php
         $isError = false;
-        if(isset($_POST['com_id'])){
+        if(isset($_POST["com_id"])){
             $com_id = trim($_POST['com_id']);
             if($com_id===""){
                 $isError = true;

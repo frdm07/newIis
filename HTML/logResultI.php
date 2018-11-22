@@ -33,12 +33,12 @@
         $idflg = false;
         $psflg = false;
         foreach($list[0] as $id){
-            if($_POST['com_id'] === $id){
+            if($_POST['ins_id'] === $id){
                 $idflag = true;
                 foreach($list[0]['ps'] as $ps){
-                    if($_POST['com_ps'] === $ps){
+                    if($_POST['ins_ps'] === $ps){
                         $psflag = true;
-                        $_SESSION["com_id"] = $_POST["com_id"];
+                        $_SESSION["ins_id"] = $_POST["ins_id"];
                     }
                 }
             }
