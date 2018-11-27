@@ -1,0 +1,17 @@
+@charset "utf-8";
+body{
+    background-color: #f0f8ff;
+}
+table{
+    text-align: right;
+}
+input[type="text"]{
+    width: 250px;
+}
+input[type="password"]{
+    width: 250px;
+}
+input[type="submit"]{
+    width: 250px;
+    height: 30px;
+}

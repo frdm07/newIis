@@ -1,0 +1,19 @@
+@charset "utf-8";
+div{
+    border: 2px solid black;
+}
+table.th{
+    text-align: center;
+}
+a{
+    float: right;
+}
+.pro{
+    text-align: right;
+}
+input[type="submit"]{
+    width: 100px;
+}
+.inp{
+    text-align: right;
+}

@@ -1,0 +1,36 @@
+table {
+  list-style: none;
+  padding-left:10px;
+}
+table td{      
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.stitle{
+  padding-left: 30px;
+  padding-bottom: 0px;
+  font-size: 15px;
+  text-align: end;
+}
+input[type="submit"] {
+  width: 150px;
+}
+.profile{
+  display: block;
+  float: left;
+}
+.schedule{
+  font-family: sans-serif;
+}
+.exebutton{
+  font-size: 50px;
+  width: 200px;
+}
+.minbutton{
+  font-size: 50px;
+  width: 120px;
+}
+.meMo{
+  width: 800px;
+  height: 600px;
+}
